@@ -1,0 +1,48 @@
+<head>
+    <title>
+        Matrix Calculator: Multiplication
+    </title>
+    <style>
+        table, th, td{
+            border: 1px solid black;
+        }
+    </style>
+    <a href="Addition.html">Addition</a> |
+    <a href="Multiplication.html">Multiplication</a>|
+    <a href="trace.html">Trace</a>|
+    <a href="EcheleonForm.html">Echeleon Form</a>|
+    <a href="main.html">Home</a>
+</head>
+<body>
+    <script src="js/Matrix.js"></script>
+    <script src="js/Multiplication.js"></script>
+
+    <h1>Multiplication</h1>
+    <div>
+        <h2>Matrix A:</h2>
+        <div>
+            Number of rows:    
+            <input type="text" id="rowsA">
+        </div>
+        <div>
+            Number of column:
+            <input type="text" id="columnsA">
+        </div>
+    </div>
+    <div>
+        <h2>Matrix B:</h2>
+        <div>
+            Number of rows:    
+            <input type="text" id="rowsB">
+        </div>
+        <div>
+            Number of column:
+            <input type="text" id="columnsB">
+        </div>
+    </div>
+    
+    <button onclick="multiplication()" id="first">Submit</button>
+    <div id="input1"></div>
+    <div id="input2"></div>
+    <div id="answer"></div>
+</body>

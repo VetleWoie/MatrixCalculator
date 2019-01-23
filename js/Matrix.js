@@ -3,6 +3,7 @@ class Matrix{
         this.rows = rows;
         this.columns = columns;
 
+        this.op = [];
         this.mat = [];
         var i;
         var j;
@@ -53,6 +54,7 @@ class Matrix{
     swapRows(row1, row2){
         var tmp;
         var i;
+        this.op.push(1);
         for(i = 0; i < this.columns; i++){
             tmp = this.mat[row1-1][i];
             this.mat[row1-1][i] = this.mat[row2-1][i];
@@ -62,6 +64,7 @@ class Matrix{
 
     mulRow(row, scalar){
         var i;
+        this.op.push(2);
         for(i = 0; i < this.columns; i++){
             this.mat[row-1][i] *= scalar;
         }
@@ -69,6 +72,7 @@ class Matrix{
 
     addMulRow(scalar, row1, row2){
         var i;
+        this.op.push(3);
         for(i = 0; i < this.columns; i++){
             this.mat[row2-1][i] += scalar * this.mat[row1-1][i];
         }

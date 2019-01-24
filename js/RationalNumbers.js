@@ -13,7 +13,11 @@ class Rational{
     }
 
     asString(){
-        return String(this.numerator)+"/"+String(this.denominator); 
+        if(this.denominator == 1){
+            return String(this.nominator);
+        }else{
+            return String(this.numerator)+"/"+String(this.denominator);
+        } 
     }
 
     short(){
@@ -51,5 +55,13 @@ class Rational{
 
     div(numberB){
         return new Rational(this.numerator * numberB.denominator, this.denominator * numberB.numerator);
+    }
+
+    add(numberB){
+        return new Rational(this.nominator * numberB.denominator + this.denominator * numberB.nominator, this.denominator * this.nominator);
+    }
+
+    sub(numberB){
+        return new Rational(this.nominator * numberB.denominator - this.denominator * numberB.nominator, this.denominator * this.nominator);
     }
 }

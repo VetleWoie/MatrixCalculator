@@ -15,6 +15,22 @@ function removeChildNodes(container){
     }
 }
 
+function parseString(string){
+    var fraction = 1;
+    var i;
+    for(i = 0; i < string.length -1; i++){
+        if(string[i] == '/'){
+            fraction = 0
+            break;
+        }
+    }
+    if(fraction == 1){
+        return parseInt(string);
+    }else{
+        return parseInt(string.substring(0,i))/parseInt(string.substring(2));
+    }
+}
+
 
 function elementaryRow(){
     var rows = parseInt(document.getElementById('rows').value);
@@ -154,19 +170,19 @@ function elementaryRow(){
     function elemRow(type, matrix, inputs){
         switch(type){
             case 1:
-                var row1 = parseInt(inputs[0].value);
-                var row2 = parseInt(inputs[1].value);
+                var row1 = parseString(inputs[0].value);
+                var row2 = parseString(inputs[1].value);
                 matrix.swapRows(row1, row2);
                 break;
             case 2:
-                var scalar = parseInt(inputs[1].value);
-                var row = parseInt(inputs[0].value);
+                var scalar = parseString(inputs[1].value);
+                var row = parseString(inputs[0].value);
                 matrix.mulRow(scalar, row);
                 break;
             case 3:
-                var scalar = parseInt(inputs[0].value);
-                var row1 = parseInt(inputs[1].value);
-                var row2 = parseInt(inputs[2].value);
+                var scalar = parseString(inputs[0].value);
+                var row1 = parseString(inputs[1].value);
+                var row2 = parseString(inputs[2].value);
                 matrix.addMulRow(scalar, row1, row2);
                 break;
         }

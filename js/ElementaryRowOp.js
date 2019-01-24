@@ -27,7 +27,7 @@ function parseString(string){
     if(fraction == 1){
         return parseInt(string);
     }else{
-        return parseInt(string.substring(0,i))/parseInt(string.substring(2));
+        return new Rational(parseInt(string.substring(0,i)),parseInt(string.substring(2)));
     }
 }
 

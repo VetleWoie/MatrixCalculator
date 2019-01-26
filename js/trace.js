@@ -1,21 +1,3 @@
-function newMatrix(inputMatrix, rows, columns){
-    var i,j;
-    var matrix = new Matrix(rows, columns);
-    for(i = 0; i < rows; i++){
-        for(j = 0; j < columns; j++){
-            matrix.mat[i][j] = parseInt(inputMatrix[i][j].value);
-        }
-    }
-    return matrix;
-}
-
-function removeChildNodes(container){
-    while(container.hasChildNodes()){
-        container.removeChild(container.lastChild);
-    }
-}
-
-
 function trace(){
     var rows = parseInt(document.getElementById('rows').value);
     var columns =parseInt(document.getElementById('columns').value);

@@ -34,9 +34,6 @@ class Rational{
             if(denominator % primes[i] == 0){
                 factors.push(primes[i]);
             }
-            if(primes[i]>Math.sqrt(denominator)){
-                break;
-            }
         }
 
         for(i=0; i < factors.length; i++){

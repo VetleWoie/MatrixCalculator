@@ -10,7 +10,7 @@ class Matrix{
         for(i=0; i < rows; i++){
             this.mat[i] = [];
             for(j = 0; j < columns; j++){
-                this.mat[i].push(0);
+                this.mat[i].push(new Rational(0,1));
             }
         }
     }
@@ -105,7 +105,7 @@ class Matrix{
         for(i = 0; i < this.rows; i++){
             for(j = 0; j < matB.columns; j++){
                 for(k = 0; k < this.columns; k++){
-                    mat.mat[i][j] += this.mat[i][k] * matB.mat[k][j];
+                    mat.mat[i][j] = mat.mat[i][j].add(this.mat[i][k].mul(matB.mat[k][j]));
                 }
             }
         }
@@ -117,11 +117,12 @@ class Matrix{
             return(null);
         }
 
-        var sum = 0;
+        var sum = new Rational(0,1);
         var i;
         for(i=0; i < this.rows; i++){
-            sum += this.mat[i][i];
+            sum = sum.add(this.mat[i][i]);
         }
+        sum.short();
         return sum;
     }
 }

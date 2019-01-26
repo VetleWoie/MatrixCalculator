@@ -3,7 +3,7 @@ function newMatrix(inputMatrix, rows, columns){
     var matrix = new Matrix(rows, columns);
     for(i = 0; i < rows; i++){
         for(j = 0; j < columns; j++){
-            matrix.mat[i][j] = new Rational(parseInt(inputMatrix[i][j].value),1);
+            matrix.mat[i][j] = parseString(inputMatrix[i][j].value);
         }
     }
     return matrix;

@@ -37,6 +37,6 @@ function trace(){
     button.onclick = function(){
         removeChildNodes(answer);
         var matA = newMatrix(inputA,rows,columns);
-        answer.appendChild(document.createTextNode("Trace  of matrix: " + String(matA.trace())))
+        answer.appendChild(document.createTextNode("Trace  of matrix: " + matA.trace().asString()));
     }
 }

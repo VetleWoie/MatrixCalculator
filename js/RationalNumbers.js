@@ -46,6 +46,10 @@ class Rational{
         this.denominator /= factor;
     }
 
+    inverse(){
+        return new Rational(this.denominator, this.numerator);
+    }
+
     mul(numberB){
         return new Rational(this.numerator * numberB.numerator, this.denominator * numberB.denominator);
     }

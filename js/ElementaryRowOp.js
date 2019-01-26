@@ -3,7 +3,7 @@ function newMatrix(inputMatrix, rows, columns){
     var matrix = new Matrix(rows, columns);
     for(i = 0; i < rows; i++){
         for(j = 0; j < columns; j++){
-            matrix.mat[i][j] = parseInt(inputMatrix[i][j].value);
+            matrix.mat[i][j] = new Rational(parseInt(inputMatrix[i][j].value),1);
         }
     }
     return matrix;
@@ -25,9 +25,9 @@ function parseString(string){
         }
     }
     if(fraction == 1){
-        return parseInt(string);
+        return new Rational(parseInt(string),1);
     }else{
-        return new Rational(parseInt(string.substring(0,i)),parseInt(string.substring(2)));
+        return new Rational(parseInt(string.substring(0,i)),parseInt(string.substring(i+1)));
     }
 }
 
@@ -170,19 +170,19 @@ function elementaryRow(){
     function elemRow(type, matrix, inputs){
         switch(type){
             case 1:
-                var row1 = parseString(inputs[0].value);
-                var row2 = parseString(inputs[1].value);
+                var row1 = parseInt(inputs[0].value);
+                var row2 = parseInt(inputs[1].value);
                 matrix.swapRows(row1, row2);
                 break;
             case 2:
-                var scalar = parseString(inputs[1].value);
-                var row = parseString(inputs[0].value);
-                matrix.mulRow(scalar, row);
+                var scalar = parseString(inputs[0].value);
+                var row = parseInt(inputs[1].value);
+                matrix.mulRow(row,scalar);
                 break;
             case 3:
                 var scalar = parseString(inputs[0].value);
-                var row1 = parseString(inputs[1].value);
-                var row2 = parseString(inputs[2].value);
+                var row1 = parseInt(inputs[1].value);
+                var row2 = parseInt(inputs[2].value);
                 matrix.addMulRow(scalar, row1, row2);
                 break;
         }

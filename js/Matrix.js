@@ -41,7 +41,7 @@ class Matrix{
             row =table.insertRow(i);
             for(j = 0; j < this.columns; j++){
                 cell = row.insertCell(j);
-                cell.innerHTML = this.mat[i][j];
+                cell.innerHTML = this.mat[i][j].asString();
             }
         }
         div.appendChild(table);
@@ -66,7 +66,7 @@ class Matrix{
         var i;
         this.op.push(2);
         for(i = 0; i < this.columns; i++){
-            this.mat[row-1][i] *= scalar;
+            this.mat[row-1][i] = this.mat[row-1][i].mul(scalar);
         }
     }
 
@@ -74,7 +74,7 @@ class Matrix{
         var i;
         this.op.push(3);
         for(i = 0; i < this.columns; i++){
-            this.mat[row2-1][i] += scalar * this.mat[row1-1][i];
+            this.mat[row2-1][i] = this.mat[row2-1][i].add(this.mat[row1-1][i].mul(scalar));
         }
     }
     
@@ -87,7 +87,7 @@ class Matrix{
         var i,j;
         for(i = 0; i<this.rows; i++){
             for(j = 0; j < this.columns; j++){
-                newMatrix.mat[i][j]= this.mat[i][j]+matrixB.mat[i][j];
+                newMatrix.mat[i][j]= this.mat[i][j].add(matrixB.mat[i][j]);
             }
         }
         return newMatrix;

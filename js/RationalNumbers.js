@@ -14,7 +14,7 @@ class Rational{
 
     asString(){
         if(this.denominator == 1){
-            return String(this.nominator);
+            return String(this.numerator);
         }else{
             return String(this.numerator)+"/"+String(this.denominator);
         } 
@@ -58,10 +58,10 @@ class Rational{
     }
 
     add(numberB){
-        return new Rational(this.nominator * numberB.denominator + this.denominator * numberB.nominator, this.denominator * this.nominator);
+        return new Rational(this.numerator * numberB.denominator + this.denominator * numberB.numerator, this.denominator * numberB.denominator);
     }
 
     sub(numberB){
-        return new Rational(this.nominator * numberB.denominator - this.denominator * numberB.nominator, this.denominator * this.nominator);
+        return new Rational(this.numerator * numberB.denominator - this.denominator * numberB.numerator, this.denominator * numberB.denominator);
     }
 }

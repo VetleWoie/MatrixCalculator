@@ -67,6 +67,7 @@ class Matrix{
         this.op.push(2);
         for(i = 0; i < this.columns; i++){
             this.mat[row-1][i] = this.mat[row-1][i].mul(scalar);
+            this.mat[row-1][i].short();
         }
     }
 
@@ -75,6 +76,7 @@ class Matrix{
         this.op.push(3);
         for(i = 0; i < this.columns; i++){
             this.mat[row2-1][i] = this.mat[row2-1][i].add(this.mat[row1-1][i].mul(scalar));
+            this.mat[row2-1][i].short();
         }
     }
     
@@ -88,6 +90,7 @@ class Matrix{
         for(i = 0; i<this.rows; i++){
             for(j = 0; j < this.columns; j++){
                 newMatrix.mat[i][j]= this.mat[i][j].add(matrixB.mat[i][j]);
+                newMatrix.mat[i][j].short();
             }
         }
         return newMatrix;

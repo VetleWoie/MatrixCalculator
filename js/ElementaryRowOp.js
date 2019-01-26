@@ -131,6 +131,15 @@ function elementaryRow(){
                 elemRow(3, matA, inputs);
             }
         }
+        div = document.createElement("div");
+        answer.appendChild(div);
+        button = document.createElement("button");
+        button.appendChild(document.createTextNode("Regret Operation"));
+        div.appendChild(button);
+        button.onclick = function() {
+            matA.regret();
+            submit(matA);
+        }
     }
 
     function elemRow(type, matrix, inputs){
